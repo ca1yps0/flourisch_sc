@@ -52,12 +52,12 @@ $(window).ready(function () {
   if(isMobile) {
 
     addToConsole('this is mobile1');
-    $(".test-scroll").on("swiperight", function () {
+    $(".test-scroll").on("swipeleft", function () {
       addToConsole('scroll nexxt');
       $(".next").trigger("click");
     });
 
-    $(".test-scroll").on("swipeleft", function () {
+    $(".test-scroll").on("swiperight", function () {
       addToConsole('scroll prevvious');
       $(".previous").trigger("click");
     });
