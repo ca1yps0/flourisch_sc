@@ -1,13 +1,8 @@
-function addToConsole(message) {
-  $('.fconsole').append("<p>"+message+"</p><br>");
-}
+
 // ms on click
 var delayOverlay = 3000;
-
 // ms delay for scrollng
 var delayScrolling = 100;
-
-
 
 function displaywheel(e){
   var evt=window.event || e;//equalize event object
@@ -35,7 +30,7 @@ $(window).ready(function () {
   $('iframe').before('<div class="test-scroll"></div>');
   var isMobile = false; //initiate as false
 
-  // for hover irame graphic
+  // for hover iframe graphic
   $( ".test-scroll" ).bind('click', function () {
     $(this).fadeOut();
     _.delay( function () {
@@ -50,18 +45,13 @@ $(window).ready(function () {
     isMobile = true;
   }
   if(isMobile) {
-
-    addToConsole('this is mobile1');
     $(".test-scroll").on("swipeleft", function () {
-      addToConsole('scroll nexxt');
       $(".next").trigger("click");
     });
 
     $(".test-scroll").on("swiperight", function () {
-      addToConsole('scroll prevvious');
       $(".previous").trigger("click");
     });
-
 
   } else {
     document.addEventListener(mousewheelevt, _.debounce(displaywheel,100), false);
@@ -69,20 +59,15 @@ $(window).ready(function () {
     $('.test-scroll').bind('mousewheel',_.debounce(function(event) {
       // console.log('wheelDelta',event.originalEvent.wheelDelta);
       if (event.originalEvent.wheelDelta >= 0) {
-         addToConsole('Scroll up');
          //console.log('Scroll up');
         $( ".previous" ).trigger( "click" );
       }
       else {
         // console.log('Scroll down');
-        addToConsole('Scroll down');
         $( ".next" ).trigger( "click" );
       }
     }, 200));
   }
-
-
-
 });
 
 
