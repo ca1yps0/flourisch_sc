@@ -5,7 +5,7 @@ function addToConsole(message) {
 var delayOverlay = 3000;
 
 // ms delay for scrollng
-var delayScrolling = 300;
+var delayScrolling = 200;
 
 
 
