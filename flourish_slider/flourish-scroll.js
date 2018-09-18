@@ -75,12 +75,12 @@ $(window).ready(function () {
      }), 200);*/
     addToConsole('this is mobile1');
 
-    $(".fconsole").on("swiperight", function () {
+    $(".test-scroll").on("swiperight", function () {
       addToConsole('scroll nexxt');
       $(".next").trigger("click");
     });
 
-    $(".fconsole").on("swipeleft", function () {
+    $(".test-scroll").on("swipeleft", function () {
       addToConsole('scroll prevvious');
       $(".previous").trigger("click");
     });
