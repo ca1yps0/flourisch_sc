@@ -76,12 +76,12 @@ $(window).ready(function () {
     addToConsole('this is mobile1');
 
     $(".fconsole").on("swiperight", function () {
-      addToConsole('scroll next');
+      addToConsole('scroll nexxt');
       $(".next").trigger("click");
     });
 
     $(".fconsole").on("swipeleft", function () {
-      addToConsole('scroll previous');
+      addToConsole('scroll prevvious');
       $(".previous").trigger("click");
     });
 
