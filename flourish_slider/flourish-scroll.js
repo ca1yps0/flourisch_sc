@@ -6,6 +6,10 @@ var delayOverlay = 3000;
 // ms delay for scrollng
 var delayScrolling = 300;
 
+function addToConsole(message) {
+  $('.fconsole').append("<p>"+message+"</p><br>");
+}
+
 function displaywheel(e){
   var evt=window.event || e;//equalize event object
   var delta=evt.detail? evt.detail*(-120) : evt.wheelDelta;//check for detail first so Opera uses that instead of wheelDelta
@@ -60,9 +64,11 @@ $(window).ready(function () {
     /* $('.test-scroll').on('touchmove', _.debounce(function() {
      $( ".next" ).trigger( "click" );
      }), 200);*/
+    addToConsole('this is mobile1');
+
     $(document).on( "mobileinit", function() {
 
-      //alert('is mobile');
+      addToConsole('this is mobile2 ');
       $(".test-scroll").on("swiperight", function () {
         $(".next").trigger("click");
       });
@@ -79,11 +85,14 @@ $(window).ready(function () {
     $('.test-scroll').bind('mousewheel',_.debounce(function(event) {
       // console.log('wheelDelta',event.originalEvent.wheelDelta);
       if (event.originalEvent.wheelDelta >= 0) {
-        // console.log('Scroll up');
+         addToConsole('Scroll up');
+         //console.log('Scroll up');
         $( ".previous" ).trigger( "click" );
       }
       else {
         // console.log('Scroll down');
+        addToConsole('Scroll down');
+
         $( ".next" ).trigger( "click" );
 
       }
