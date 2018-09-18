@@ -75,15 +75,15 @@ $(window).ready(function () {
      }), 200);*/
     addToConsole('this is mobile1');
 
-    $(".fconsole").on("swiperight", function () {
+    $(".fconsole").on("swipe", function () {
       addToConsole('scroll next');
       $(".next").trigger("click");
     });
 
-    $(".fconsole").on("swipeleft", function () {
+   /* $(".fconsole").on("swipeleft", function () {
       addToConsole('scroll previous');
       $(".previous").trigger("click");
-    });
+    });*/
 
 
   } else {
