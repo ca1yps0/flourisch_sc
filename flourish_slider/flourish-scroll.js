@@ -1,18 +1,6 @@
 function addToConsole(message) {
   $('.fconsole').append("<p>"+message+"</p><br>");
 }
-/*
-$(function(){
-  // Bind the swipeHandler callback function to the swipe event on div.box
-  $( ".fconsole" ).on( "swipe", swipeHandler );
-
-  // Callback function references the event target and adds the 'swipe' class to it
-  function swipeHandler( event ){
-    addToConsole('swipping');
-    $( event.target ).addClass( "swipe" );
-  }
-});*/
-
 // ms on click
 var delayOverlay = 3000;
 
@@ -39,14 +27,6 @@ function displaywheel(e){
 //var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel";//FF doesn't recognize mousewheel as of FF3.x
 var mousewheelevt="DOMMouseScroll" //FF doesn't recognize mousewheel as of FF3.x
 
-/*
-if (document.attachEvent) //if IE (and Opera depending on user setting)
-  document.attachEvent("on"+mousewheelevt, displaywheel);
-else if (document.addEventListener) //WC3 browsers
- document.addEventListener(mousewheelevt, _.debounce(displaywheel,100), false);
-
-*/
-
 function showOverlay() {
   $(".test-scroll").fadeIn();
 }
@@ -56,13 +36,13 @@ $(window).ready(function () {
   var isMobile = false; //initiate as false
 
   // for hover irame graphic
- /* $( ".test-scroll" ).bind('click', function () {
+  $( ".test-scroll" ).bind('click', function () {
     $(this).fadeOut();
     _.delay( function () {
       console.log('fadding in');
       $(".test-scroll").fadeIn();
     }, delayOverlay);
-  });*/
+  });
 
 // device detection
   if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
@@ -70,11 +50,8 @@ $(window).ready(function () {
     isMobile = true;
   }
   if(isMobile) {
-    /* $('.test-scroll').on('touchmove', _.debounce(function() {
-     $( ".next" ).trigger( "click" );
-     }), 200);*/
-    addToConsole('this is mobile1');
 
+    addToConsole('this is mobile1');
     $(".test-scroll").on("swiperight", function () {
       addToConsole('scroll nexxt');
       $(".next").trigger("click");
@@ -99,9 +76,7 @@ $(window).ready(function () {
       else {
         // console.log('Scroll down');
         addToConsole('Scroll down');
-
         $( ".next" ).trigger( "click" );
-
       }
     }, delayScrolling));
   }
