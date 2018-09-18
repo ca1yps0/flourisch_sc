@@ -5,7 +5,7 @@ function addToConsole(message) {
 var delayOverlay = 3000;
 
 // ms delay for scrollng
-var delayScrolling = 200;
+var delayScrolling = 100;
 
 
 
@@ -78,7 +78,7 @@ $(window).ready(function () {
         addToConsole('Scroll down');
         $( ".next" ).trigger( "click" );
       }
-    }, delayScrolling));
+    }, 200));
   }
 
 
