@@ -1,9 +1,14 @@
+function addToConsole(message) {
+  $('.fconsole').append("<p>"+message+"</p><br>");
+}
+
 $(function(){
   // Bind the swipeHandler callback function to the swipe event on div.box
   $( ".fconsole" ).on( "swipe", swipeHandler );
 
   // Callback function references the event target and adds the 'swipe' class to it
   function swipeHandler( event ){
+    addToConsole('swipping');
     $( event.target ).addClass( "swipe" );
   }
 });
@@ -14,9 +19,7 @@ var delayOverlay = 3000;
 // ms delay for scrollng
 var delayScrolling = 300;
 
-function addToConsole(message) {
-  $('.fconsole').append("<p>"+message+"</p><br>");
-}
+
 
 function displaywheel(e){
   var evt=window.event || e;//equalize event object
