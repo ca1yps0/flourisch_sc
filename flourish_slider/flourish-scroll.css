@@ -1,6 +1,11 @@
-.fconsole {
-  width: 100%;
+.swipe {
   background: cornflowerblue;
+}
+
+.fconsole {
+
+  width: 100%;
+  background: palevioletred;
  /* opacity: 0.2;*/
   height: 100px;
   overflow-y: scroll;

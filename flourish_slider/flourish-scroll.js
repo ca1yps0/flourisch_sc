@@ -1,4 +1,12 @@
+$(function(){
+  // Bind the swipeHandler callback function to the swipe event on div.box
+  $( ".fconsole" ).on( "swipe", swipeHandler );
 
+  // Callback function references the event target and adds the 'swipe' class to it
+  function swipeHandler( event ){
+    $( event.target ).addClass( "swipe" );
+  }
+});
 
 // ms on click
 var delayOverlay = 3000;
@@ -67,10 +75,12 @@ $(window).ready(function () {
     addToConsole('this is mobile1');
 
     $(".test-scroll").on("swiperight", function () {
+      addToConsole('scroll next');
       $(".next").trigger("click");
     });
 
     $(".test-scroll").on("swipeleft", function () {
+      addToConsole('scroll previous');
       $(".previous").trigger("click");
     });
 
