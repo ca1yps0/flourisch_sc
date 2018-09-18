@@ -4,13 +4,14 @@
 
 .fconsole {
 
-  width: 100%;
+  width: 50em;
   background: palevioletred;
  /* opacity: 0.2;*/
   height: 100px;
-  overflow-y: scroll;
+ /* overflow-y: scroll;*/
   z-index: 9200;
   top: 5px;
+  display: block;
 }
 
 .test-scroll {

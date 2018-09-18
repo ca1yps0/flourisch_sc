@@ -52,13 +52,14 @@ $(window).ready(function () {
   $('iframe').before('<div class="test-scroll"></div>');
   var isMobile = false; //initiate as false
 
-  $( ".test-scroll" ).bind('click', function () {
+  // for hover irame graphic
+ /* $( ".test-scroll" ).bind('click', function () {
     $(this).fadeOut();
     _.delay( function () {
       console.log('fadding in');
       $(".test-scroll").fadeIn();
     }, delayOverlay);
-  });
+  });*/
 
   //var device = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()));
 // device detection
