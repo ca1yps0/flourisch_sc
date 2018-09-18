@@ -66,16 +66,12 @@ $(window).ready(function () {
      }), 200);*/
     addToConsole('this is mobile1');
 
-    $(document).on( "mobileinit", function() {
+    $(".test-scroll").on("swiperight", function () {
+      $(".next").trigger("click");
+    });
 
-      addToConsole('this is mobile2 ');
-      $(".test-scroll").on("swiperight", function () {
-        $(".next").trigger("click");
-      });
-
-      $(".test-scroll").on("swipeleft", function () {
-        $(".previous").trigger("click");
-      });
+    $(".test-scroll").on("swipeleft", function () {
+      $(".previous").trigger("click");
     });
 
 
