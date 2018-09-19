@@ -2,7 +2,8 @@
 // ms on click
 var delayOverlay = 3000;
 // ms delay for scrollng
-var delayScrolling = 100;
+// if is Mac Platform 0 delay for scrolling
+var delayScrolling = navigator.platform.toUpperCase().indexOf('MAC') >= 0 ? 0 : 100;
 
 function displaywheel(e){
   var evt=window.event || e;//equalize event object
@@ -66,7 +67,7 @@ $(window).ready(function () {
         // console.log('Scroll down');
         $( ".next" ).trigger( "click" );
       }
-    }, 200));
+    }, delayScrolling));
   }
 });
 
