@@ -3,7 +3,9 @@
 var delayOverlay = 3000;
 // ms delay for scrollng
 // if is Mac Platform 0 delay for scrolling
-var delayScrolling = navigator.platform.toUpperCase().indexOf('MAC') >= 0 ? 0 : 100;
+var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+var isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+var delayScrolling = isMac && isChrome ? 0 : 100;
 
 function displaywheel(e){
   var evt=window.event || e;//equalize event object
