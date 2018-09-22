@@ -1,4 +1,8 @@
 
+// the number o the slide
+var noSlideDelay = 0;
+// ms of the delay
+var customeDelayOverlay = false;
 // ms on click
 var delayOverlay = 3000;
 // ms delay for scrollng
@@ -6,6 +10,55 @@ var delayOverlay = 3000;
 var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
 var isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
 var delayScrolling = isMac && isChrome ? 0 : 100;
+
+
+function setAutoDelayOverlay(slideNo, overlayTime) {
+  customeDelayOverlay = overlayTime;
+  noSlideDelay = slideNo;
+}
+function initDelayOverlay() {
+  $(this).fadeOut();
+  _.delay( function () {
+    console.log('fadding in');
+    $(".test-scroll").fadeIn();
+  }, customeDelayOverlay);
+
+  console.log('delay overlay at', noSlideDelay);
+
+}
+
+function checkDelay() {
+  // console.log("noSlideDelay", noSlideDelay);
+  // console.log('here', window.location.href);
+
+  if(customeDelayOverlay ) {
+    var location = window.location.href;
+    var arrayLocation = location.split("-");
+    var slideNumber = Number(arrayLocation[arrayLocation.length - 1]);
+
+    if(slideNumber == noSlideDelay) {
+      // console.log('delay test-scroll');
+      // for hover iframe graphic
+        $(".test-scroll" ).fadeOut();
+        _.delay( function () {
+          // console.log('fadding in');
+          $(".test-scroll").fadeIn();
+        }, delayOverlay);
+    }
+
+    // console.log('slideNumber', slideNumber);
+  }
+}
+
+function triggerNext() {
+  $(".next").trigger("click");
+  checkDelay();
+}
+
+function triggerPrevious() {
+  $(".previous").trigger("click");
+  checkDelay();
+}
 
 function displaywheel(e){
   var evt=window.event || e;//equalize event object
@@ -22,12 +75,13 @@ function displaywheel(e){
   console.log("displaywheel",delta);
 }
 
+
+/*function showOverlay() {
+  $(".test-scroll").fadeIn();
+}*/
+
 //var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel";//FF doesn't recognize mousewheel as of FF3.x
 var mousewheelevt="DOMMouseScroll" //FF doesn't recognize mousewheel as of FF3.x
-
-function showOverlay() {
-  $(".test-scroll").fadeIn();
-}
 
 $(window).ready(function () {
   $('iframe').before('<div class="test-scroll"></div>');
@@ -49,25 +103,22 @@ $(window).ready(function () {
   }
   if(isMobile) {
     $(".test-scroll").on("swipeleft", function () {
-      $(".next").trigger("click");
+     triggerNext();
     });
 
     $(".test-scroll").on("swiperight", function () {
-      $(".previous").trigger("click");
+      triggerPrevious()
     });
 
   } else {
     document.addEventListener(mousewheelevt, _.debounce(displaywheel,100), false);
 
     $('.test-scroll').bind('mousewheel',_.debounce(function(event) {
-      // console.log('wheelDelta',event.originalEvent.wheelDelta);
       if (event.originalEvent.wheelDelta >= 0) {
-         //console.log('Scroll up');
-        $( ".previous" ).trigger( "click" );
+        triggerPrevious();
       }
       else {
-        // console.log('Scroll down');
-        $( ".next" ).trigger( "click" );
+        triggerNext();
       }
     }, delayScrolling));
   }
