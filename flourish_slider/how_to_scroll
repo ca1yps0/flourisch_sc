@@ -7,3 +7,8 @@ after <script src="story_player.js" charset="utf-8"></script>
 	<script src="flourish_slider/jquery.mobile-1.4.5.min.js"></script>
 	<script src="flourish_slider/underscore-min.js" charset="utf-8"></script>
 	<script src="flourish_slider/flourish-scroll.js" charset="utf-8"></script>
+
+#to make a slide ckickable the first Xms (milliseconds)
+# call this function at the begining of <script> tag in index.html
+
+setAutoDelayOverlay(slideNumber,Xms);
